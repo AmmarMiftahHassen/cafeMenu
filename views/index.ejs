@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taco recipe</title>
+    <link rel="stylesheet" href="/main.css">
+</head>
+<body>
+    <h1 class="title">Taco Town🍔</h1>
+    <form  class="button" action="/recipe" method="POST">
+    <button  id="one"class= "images" type="submit"  value="burger" name="choice"><img src="/images/burger.png"  height="100px" width="100px" alt="burger-image"></button> 
+     <button id="two" class= "images" type="submit"  value="pizza" name="choice"><img src="/images/pizza.webp"  height="100px" width="100px"   alt="pizza's-image"></button>
+     <button id="three" class= "images" type="submit"  value="pasta" name="choice"><img src="/images/pasta.png"   height="100px" width="100px"   alt="pasta's-image"></button>
+
+    </form>
+    <div class="container">
+  <%  if (recipes) { %> 
+            <h2>
+                <%= recipes.title %>
+                </h2>
+            <h3>  Ingredients </h3>
+            <ul>
+                <% recipes.ingredients.forEach(function(ingredient){%>
+                    <li>
+                        <%= ingredient%>
+                    </li>
+                        <% }) %>
+                </ul>
+            <ol>
+                <h3>Instructions</h3>
+                <% recipes.instructions.forEach(function(instruction) {%>
+                    <li><%= instruction %></li>
+                    <% }) %>
+            </ol>
+    <% } else { %>
+        <p class="paragraph-text" contenteditable="true">Please choose a recipe above to see the details!</p>
+    <% } %>
+</div>
+</body>
+</html>
